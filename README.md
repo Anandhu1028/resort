@@ -2,9 +2,13 @@
 
 A premium, modern resort website designed for **Aurelia Highlands Resort**, showcasing luxury accommodations, immersive experiences, and breathtaking natural surroundings.
 
-![Laravel](https://img.shields.io/badge/Laravel-12-red)
-![PHP](https://img.shields.io/badge/PHP-8.3-blue)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple)
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-Animation-88CE02?logo=greensock&logoColor=white)
+![Responsive](https://img.shields.io/badge/Responsive-Mobile_First-success)
+![Performance](https://img.shields.io/badge/Lighthouse-95+-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
