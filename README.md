@@ -9,7 +9,6 @@ A premium, modern resort website designed for **Aurelia Highlands Resort**, show
 ![GSAP](https://img.shields.io/badge/GSAP-Animation-88CE02?logo=greensock&logoColor=white)
 ![Responsive](https://img.shields.io/badge/Responsive-Mobile_First-success)
 ![Performance](https://img.shields.io/badge/Lighthouse-95+-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
