@@ -1,6 +1,6 @@
 # 🌿 Aurelia Highlands Resort
 
-A premium, modern resort website designed for **Aurelia Highlands Resort**, showcasing luxury accommodations, immersive experiences, and breathtaking natural surroundings.
+A premium luxury resort website built with **Next.js**, **React**, **TypeScript**, **Tailwind CSS**, and **GSAP**. Designed to deliver an immersive digital experience that showcases luxury accommodations, nature-inspired architecture, and premium hospitality through smooth animations, responsive layouts, and modern user experience.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
@@ -9,151 +9,179 @@ A premium, modern resort website designed for **Aurelia Highlands Resort**, show
 ![GSAP](https://img.shields.io/badge/GSAP-Animation-88CE02?logo=greensock&logoColor=white)
 ![Responsive](https://img.shields.io/badge/Responsive-Mobile_First-success)
 ![Performance](https://img.shields.io/badge/Lighthouse-95+-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
 ## 📖 Overview
 
-Aurelia Highlands Resort is a luxury hospitality website built with a focus on modern UI/UX, smooth animations, responsive layouts, and high-performance design.
+**Aurelia Highlands Resort** is a modern luxury resort website inspired by the serene landscapes of Kerala's highlands. The website combines cinematic visuals, premium animations, and elegant user interfaces to provide visitors with an engaging digital journey.
 
-The website provides visitors with an immersive experience to explore accommodations, resort facilities, dining, activities, and booking information.
+The project focuses on delivering a high-performance, responsive, and visually immersive experience while highlighting the resort's accommodations, dining, experiences, and natural surroundings.
 
 ---
 
 ## ✨ Features
 
-- Premium modern landing page
-- Responsive design for all devices
-- Smooth scrolling animations
-- Luxury hero section
-- Accommodation showcase
-- Tree House & Forest Villa sections
-- Restaurant & Dining showcase
-- Activities & Experiences
-- Image gallery
-- Contact & Booking section
+- Premium luxury UI/UX
+- Fully responsive across all devices
+- Cinematic Hero Section
+- Smooth GSAP animations
+- Scroll-based interactions
+- Luxury accommodation showcase
+- Tree House & Forest Villa experience
+- Resort facilities section
+- Dining & Restaurant showcase
+- Adventure & Nature activities
+- Interactive image gallery
+- Contact & Reservation section
+- SEO-friendly architecture
 - Optimized performance
-- SEO-friendly structure
+- Modern typography
+- Clean and scalable component architecture
 
 ---
 
 ## 🛠 Technology Stack
 
-| Technology | Version |
-|------------|----------|
-| Laravel | 12 |
-| PHP | 8.3 |
-| Bootstrap | 5 |
-| JavaScript | ES6 |
-| HTML5 | Latest |
-| CSS3 | Latest |
-| GSAP | Animation |
-| AOS | Scroll Animation |
+| Technology | Purpose |
+|------------|---------|
+| Next.js 15 | React Framework |
+| React 19 | Frontend Library |
+| TypeScript | Static Type Checking |
+| Tailwind CSS | Utility-First CSS Framework |
+| GSAP | High-Performance Animations |
+| HTML5 | Semantic Markup |
+| CSS3 | Modern Styling |
+| JavaScript (ES2025) | Client-side Programming |
+| Git & GitHub | Version Control |
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
 app/
-bootstrap/
-config/
-database/
+├── components/
+├── sections/
+├── assets/
+├── styles/
+├── hooks/
+├── lib/
+├── public/
+│   ├── images/
+│   ├── videos/
+│   └── icons/
+├── utils/
+├── types/
+└── layout.tsx
+
+components/
 public/
-resources/
-routes/
-storage/
-artisan
-composer.json
+styles/
 package.json
+next.config.ts
+tailwind.config.ts
+tsconfig.json
 ```
 
 ---
 
-## 🚀 Installation
+## 🚀 Getting Started
 
-Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/Anandhu1028/resort.git
 ```
 
-Go to the project
+### Navigate to the Project
 
 ```bash
 cd resort
 ```
 
-Install PHP dependencies
-
-```bash
-composer install
-```
-
-Install Node packages
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-Copy environment file
+or
 
 ```bash
-cp .env.example .env
+pnpm install
 ```
 
-Generate application key
-
-```bash
-php artisan key:generate
-```
-
-Run migrations
-
-```bash
-php artisan migrate
-```
-
-Start development server
-
-```bash
-php artisan serve
-```
-
-Compile assets
+### Start the Development Server
 
 ```bash
 npm run dev
 ```
 
+Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Run Production Server
+
+```bash
+npm start
+```
+
+---
+
+## 🎨 Design Highlights
+
+- Luxury hospitality-inspired interface
+- Minimal and elegant design language
+- Nature-inspired color palette
+- Premium typography
+- Smooth page transitions
+- Immersive scrolling experience
+- High-quality imagery
+- Interactive animations
+- Mobile-first responsive layout
+
 ---
 
 ## 📸 Screenshots
 
-> Screenshots will be added after deployment.
+> Screenshots and live previews will be added soon.
 
 ---
 
-## 🎯 Future Improvements
+## 🎯 Future Roadmap
 
 - Online booking system
-- Payment gateway integration
-- Customer reviews
+- Room availability calendar
+- Virtual resort tour
+- Guest testimonials
+- Interactive maps
 - Multi-language support
-- Admin dashboard
-- Availability calendar
-- AI-powered travel assistant
-- Interactive virtual tour
+- Weather integration
+- Blog & travel guide
+- Dark mode
+- Performance enhancements
 
 ---
 
 ## 📈 Performance Goals
 
-- Fast loading speed
-- Mobile-first responsive design
-- SEO optimization
-- Accessibility compliance
-- Optimized image delivery
+- ⚡ Lighthouse Score: 95+
+- 📱 Mobile-First Design
+- 🚀 Fast Page Load
+- 🔍 SEO Optimized
+- ♿ Accessibility Friendly
+- 🖼️ Optimized Media Assets
 
 ---
 
@@ -161,11 +189,42 @@ npm run dev
 
 Contributions are welcome.
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push your branch
-5. Open a Pull Request
+1. Fork the repository.
+2. Create your feature branch.
+
+```bash
+git checkout -b feature/your-feature
+```
+
+3. Commit your changes.
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push to your branch.
+
+```bash
+git push origin feature/your-feature
+```
+
+5. Open a Pull Request.
+
+---
+
+## 👨‍💻 Developer
+
+### Anandhu A S
+
+Software Developer | Frontend Developer | Full Stack Developer
+
+**GitHub**
+
+https://github.com/Anandhu1028
+
+**LinkedIn**
+
+https://linkedin.com/in/anandhu-a-s-b002a5232
 
 ---
 
@@ -175,17 +234,6 @@ This project is licensed under the MIT License.
 
 ---
 
-## 👨‍💻 Developer
+## ⭐ Show Your Support
 
-**Anandhu A S**
-
-Software Developer
-
-- GitHub: https://github.com/Anandhu1028
-- LinkedIn: https://linkedin.com/in/anandhu-a-s-b002a5232
-
----
-
-## ⭐ Support
-
-If you found this project useful, please consider giving it a ⭐ on GitHub.
+If you like this project, consider giving it a ⭐ on GitHub. Your support helps motivate continued improvements and future open-source contributions.
