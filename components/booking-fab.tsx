@@ -39,7 +39,7 @@ const stayOptions = [
 ]
 
 const floatingButtonBase =
-  'group relative flex h-14 w-14 items-center justify-center rounded-[1.2rem] border border-white/10 bg-[rgba(10,10,10,0.96)] text-foreground/90 shadow-[0_20px_45px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-white/10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1.5 hover:scale-[1.03] hover:border-primary/45 hover:shadow-[0_22px_55px_rgba(0,0,0,0.34)]'
+  'group relative inline-flex h-12 w-12 min-w-[3rem] items-center justify-center rounded-[1.2rem] border border-white/10 bg-[rgba(10,10,10,0.96)] text-foreground/90 shadow-[0_20px_45px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-white/10 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1.5 hover:scale-[1.03] hover:border-primary/45 hover:shadow-[0_22px_55px_rgba(0,0,0,0.34)] sm:h-14 sm:w-14 sm:min-w-[3.5rem] sm:min-h-[3.5rem]'
 
 export function BookingFab() {
   const [showTop, setShowTop] = useState(false)
@@ -68,8 +68,8 @@ export function BookingFab() {
 
   return (
     <>
-      <div className="fixed right-4 bottom-4 z-[70] sm:right-6 sm:bottom-6">
-        <div className="flex flex-col items-end gap-3">
+      <div className="fixed right-3 bottom-3 z-[70] max-w-[calc(100vw-1rem)] sm:right-6 sm:bottom-6 sm:max-w-none">
+        <div className="flex flex-col items-end gap-3 sm:gap-4">
           <div className="relative">
             <button
               type="button"
@@ -84,19 +84,17 @@ export function BookingFab() {
             </span>
           </div>
 
-          <div className="relative">
+          <div className="group relative">
             <a
               href="https://wa.me/919876543210"
               target="_blank"
               rel="noreferrer"
-              className={`${floatingButtonBase} border-[#25D366]/30 bg-[linear-gradient(135deg,rgba(10,16,12,0.98),rgba(20,34,22,0.96))] text-[#25D366] hover:border-[#25D366]/45 hover:shadow-[0_22px_55px_rgba(37,211,102,0.16)]`}
+              className={`${floatingButtonBase} border-[#25D366] bg-[#25D366] text-white hover:bg-[#1ebc50] hover:border-[#1ebc50] hover:shadow-[0_22px_55px_rgba(37,211,102,0.24)] w-12 sm:w-auto sm:px-4 sm:py-3`}
               aria-label="Contact via WhatsApp"
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
-                <path
-                  d="M6.6 18.4 4 20l1.6-4.2A7.95 7.95 0 1 1 6.6 18.4Zm.6-8.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm4.5 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm4.5 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
-                  fill="currentColor"
-                />
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M12.004 2.002c-5.51 0-9.998 4.486-9.998 9.997 0 1.76.468 3.47 1.333 4.96L2.003 22l4.843-1.27c1.43.78 3.07 1.2 4.673 1.2 5.51 0 9.996-4.488 9.996-9.997 0-5.51-4.485-9.997-9.997-9.997z" />
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.149-.198.297-.765.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.654-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.298-.497.099-.198.05-.372-.025-.52-.075-.149-.672-1.612-.92-2.206-.242-.579-.487-.5-.672-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.273-.198-.571-.347z" fill="white" />
               </svg>
             </a>
             <span className="pointer-events-none absolute right-[calc(100%+0.75rem)] hidden rounded-full border border-white/10 bg-black/85 px-2.5 py-1 text-[0.6rem] font-medium uppercase tracking-[0.28em] text-muted-foreground opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">

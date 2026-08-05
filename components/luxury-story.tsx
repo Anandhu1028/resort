@@ -85,8 +85,8 @@ export default function LuxuryStory() {
         <div className="space-y-8">
           {chapters.map((chapter, index) => (
             <article key={chapter.title} className="reveal overflow-hidden rounded-[2rem] border border-white/10 bg-[rgba(255,255,255,0.04)] backdrop-blur-[24px]">
-              <div className={`grid gap-8 p-8 lg:grid-cols-2 lg:p-10 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-                <div className="relative min-h-[320px] overflow-hidden rounded-[1.5rem]">
+              <div className={`grid gap-8 p-6 lg:grid-cols-2 lg:p-10 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+                <div className="relative min-h-[22rem] overflow-hidden rounded-[1.5rem] md:min-h-[24rem] lg:min-h-[28rem]">
                   <img src={chapter.image} alt={chapter.title} className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/70 via-transparent to-transparent" />
                 </div>

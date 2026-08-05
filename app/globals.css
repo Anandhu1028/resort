@@ -92,15 +92,16 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: #050505;
+    background-color: #07120E;
   }
 
   body {
     @apply min-h-screen bg-background text-foreground antialiased;
-    background-color: #050505;
+    background-color: #07120E;
     background-image:
-      radial-gradient(circle at top left, rgba(198, 165, 106, 0.14), transparent 22%),
-      linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 40%);
+      radial-gradient(circle at 20% 10%, rgba(215, 180, 106, 0.12), transparent 22%),
+      radial-gradient(circle at 80% 15%, rgba(244, 231, 195, 0.08), transparent 18%),
+      linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 45%);
     background-attachment: fixed;
     overflow-x: hidden;
   }

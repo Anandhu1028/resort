@@ -22,7 +22,7 @@ export function Experiences() {
   return (
     <section id="experiences" className="bg-[radial-gradient(circle_at_top_left,_rgba(198,165,106,0.12),_transparent_35%)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <span className="mb-5 block text-[0.65rem] font-light uppercase tracking-[0.4em] text-primary">
               Signature Experiences
@@ -32,18 +32,17 @@ export function Experiences() {
             </h2>
           </div>
           <p className="max-w-xl text-sm font-light leading-relaxed text-muted-foreground text-pretty md:text-base">
-            From sunrise treks to private dining in the forest, each experience is designed to feel
-            effortless and unforgettable.
+            From sunrise treks to private dining in the forest, each experience is designed to feel effortless and unforgettable.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {experiences.map((item, index) => {
             const Icon = item.icon
             return (
               <article
                 key={item.title}
-                className="group relative overflow-hidden rounded-[2rem] border border-border/50 bg-card/70 p-8 backdrop-blur-xl"
+                className="group relative overflow-hidden rounded-[2rem] border border-border/50 bg-card/70 p-8 backdrop-blur-xl transition hover:border-primary/40 hover:bg-white/5"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                 <div className="relative">

@@ -3,7 +3,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { X } from "lucide-react"
 
 const FRAME_BASE = "/images/hero/frame_"
 const FRAME_EXT = ".jpg"
@@ -11,11 +10,10 @@ const TOTAL_HERO_FRAMES = 201
 const INITIAL_FRAME_BATCH = 18
 const LAZY_FRAME_BATCH = 12
 const NAV_ITEMS = [
-  { label: "Stay", href: "#about" },
-  { label: "Experiences", href: "#dining" },
-  { label: "Dining", href: "#dining" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Offers", href: "#contact" },
+  { label: "Journey", href: "#journey" },
+  { label: "Welcome", href: "#about" },
+  { label: "Experiences", href: "#experiences" },
+  { label: "Culinary", href: "#dining" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -36,9 +34,7 @@ export function Hero() {
   const imagesRef = useRef<HTMLImageElement[]>([])
   const frameRef = useRef(0)
   const rafRef = useRef<number | null>(null)
-  const frameCountRef = useRef(0)
   const hasLoadedRef = useRef(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const drawFrame = (index: number) => {
@@ -80,15 +76,6 @@ export function Hero() {
       const percent = Math.max(0, Math.min(100, Math.round((loaded / total) * 100)))
       progressBarRef.current.style.width = `${percent}%`
     }
-  }
-
-  const hideLoading = () => {
-    if (loadingRef.current) {
-      loadingRef.current.style.opacity = "0"
-      loadingRef.current.style.pointerEvents = "none"
-    }
-    document.documentElement.style.overflow = "auto"
-    document.body.style.overflow = "auto"
   }
 
   useLayoutEffect(() => {
@@ -179,7 +166,6 @@ export function Hero() {
       if (hasLoadedRef.current) return
       hasLoadedRef.current = true
       imagesRef.current = images
-      frameCountRef.current = images.length
       root.style.overflow = "auto"
       body.style.overflow = "auto"
       updateLoadingProgress(images.length, TOTAL_HERO_FRAMES)
@@ -288,18 +274,15 @@ export function Hero() {
   }, [])
 
   return (
-    <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black text-foreground">
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <div className="absolute inset-0 bg-black" />
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
 
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.72),transparent_30%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(0,0,0,0.25)] to-[rgba(0,0,0,0.55)]" />
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="hero-fog absolute -left-20 top-24 h-72 w-[140%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14),transparent_45%)] opacity-20 blur-3xl" />
-      </div>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,18,14,0.88),transparent_28%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(7,12,8,0.28)] to-[rgba(7,12,8,0.82)]" />
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[20rem] overflow-hidden sm:h-[24rem]">
-        <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-black/10 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[28rem] overflow-hidden">
+        <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-black/30 to-transparent" />
 
         <div className="absolute left-[-18%] bottom-8 h-24 w-[70%] opacity-80 animate-[driftCloudA_42s_linear_infinite] sm:left-[-30%] sm:bottom-10 sm:h-32 sm:w-[48%]">
           <div className="absolute left-0 top-1/2 h-20 w-20 -translate-y-1/2 rounded-full bg-white/18 blur-3xl sm:h-24 sm:w-24" />
@@ -320,21 +303,21 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 top-6 z-30 px-6 sm:px-10 lg:px-16">
-        <div className="hero-nav relative mx-auto flex h-[80px] min-h-[80px] max-w-[1400px] items-center justify-between gap-6 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.18)] px-6 backdrop-blur-[24px] shadow-[0_28px_80px_rgba(0,0,0,0.24)] transition-all duration-300 sm:px-10">
-          <div className="flex items-center gap-4 text-foreground/90">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(255,255,255,0.08)] bg-white/5 text-[0.65rem] uppercase tracking-[0.5em] text-foreground/80">
+      <div className="absolute inset-x-0 top-6 z-20 px-4 sm:px-10 lg:px-16">
+        <div className="hero-nav relative mx-auto flex h-auto min-h-[68px] max-w-[1400px] items-center justify-between gap-4 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.18)] px-4 py-3 backdrop-blur-[24px] shadow-[0_28px_80px_rgba(0,0,0,0.24)] transition-all duration-300 sm:px-8 sm:py-4">
+          <div className="flex items-center gap-3 text-foreground/90">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] bg-white/5 text-[0.65rem] uppercase tracking-[0.55em] text-foreground/80">
               A
             </div>
             <div className="leading-none">
-              <div className="text-[0.7rem] uppercase tracking-[0.48em] text-foreground/70">AURELIA</div>
-              <div className="text-[0.58rem] uppercase tracking-[0.4em] text-foreground/50">Highlands Resort</div>
+              <div className="text-[0.62rem] uppercase tracking-[0.47em] text-foreground/70">Aurelia</div>
+              <div className="text-[0.52rem] uppercase tracking-[0.38em] text-foreground/60">Highlands</div>
             </div>
           </div>
 
-          <nav className="hidden items-center gap-9 text-[0.68rem] uppercase tracking-[0.38em] text-foreground/65 lg:flex">
+          <nav className="hidden items-center gap-6 text-[0.62rem] uppercase tracking-[0.34em] text-foreground/65 lg:flex">
             {NAV_ITEMS.map((item) => (
-              <a key={item.label} href={item.href} className="transition duration-300 ease-out hover:text-primary hover:tracking-[0.48em]">
+              <a key={item.label} href={item.href} className="transition duration-300 ease-out hover:text-primary hover:tracking-[0.44em]">
                 {item.label}
               </a>
             ))}
@@ -342,13 +325,13 @@ export function Hero() {
 
           <button
             type="button"
-            className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[0.62rem] uppercase tracking-[0.32em] text-foreground/80 lg:hidden"
+            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[0.64rem] uppercase tracking-[0.28em] text-foreground/80 transition hover:bg-white/10 lg:hidden"
             aria-expanded={isMenuOpen}
             aria-label="Toggle navigation"
             onClick={() => setIsMenuOpen((open) => !open)}
           >
-            Menu
-            <span className="flex flex-col gap-[0.2rem]">
+            <span className="font-semibold tracking-[0.34em]">Menu</span>
+            <span className="flex flex-col gap-[0.18rem]">
               <span className={`h-[1px] w-4 bg-current transition ${isMenuOpen ? "translate-y-[4px] rotate-45" : ""}`} />
               <span className={`h-[1px] w-4 bg-current transition ${isMenuOpen ? "opacity-0" : ""}`} />
               <span className={`h-[1px] w-4 bg-current transition ${isMenuOpen ? "-translate-y-[4px] -rotate-45" : ""}`} />
@@ -356,7 +339,7 @@ export function Hero() {
           </button>
 
           {isMenuOpen ? (
-            <div className="absolute inset-x-0 top-[calc(100%+0.75rem)] flex flex-col gap-3 rounded-[24px] border border-white/10 bg-[rgba(8,8,8,0.94)] p-4 text-[0.68rem] uppercase tracking-[0.3em] text-foreground/70 shadow-[0_18px_60px_rgba(0,0,0,0.35)] lg:hidden">
+            <div className="absolute inset-x-4 top-[calc(100%+0.75rem)] flex flex-col gap-3 rounded-[22px] border border-white/10 bg-[rgba(8,8,8,0.96)] p-3 text-[0.72rem] uppercase tracking-[0.32em] text-foreground/70 shadow-[0_18px_60px_rgba(0,0,0,0.35)] lg:hidden">
               {NAV_ITEMS.map((item) => (
                 <a key={item.label} href={item.href} className="rounded-full px-3 py-2 transition hover:bg-white/10 hover:text-primary" onClick={() => setIsMenuOpen(false)}>
                   {item.label}
@@ -367,47 +350,58 @@ export function Hero() {
         </div>
       </div>
 
-      
-
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pt-[100px] pb-10 sm:px-10 lg:grid-cols-[6fr_4fr] lg:px-16 xl:px-20">
-        <div className="relative flex flex-col justify-center gap-10 lg:pr-10">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pt-[108px] pb-20 sm:px-10 lg:grid-cols-[6fr_4fr] lg:px-16 xl:px-20">
+        <div className="relative flex flex-col justify-center gap-8 lg:pr-10">
           <div className="hero-location text-sm uppercase tracking-[0.55em] text-foreground/60">
             Munnar · Kerala · India
           </div>
 
           <div className="space-y-8">
-            <h1 className="hero-headline max-w-[720px] text-[clamp(80px,9vw,150px)] leading-[0.92] font-serif font-light tracking-[-0.03em] text-foreground">
-              <div className="hero-line overflow-hidden">
-                <span className="block">Escape Above</span>
-              </div>
-              <div className="hero-line overflow-hidden">
-                <span className="block italic text-primary">The Clouds</span>
-              </div>
-            </h1>
-            
+            <div className="space-y-6">
+              <p className="text-[0.72rem] uppercase tracking-[0.45em] text-primary">A secluded ascent into timeless forest luxury</p>
+              <h1 className="hero-headline max-w-[720px] text-[clamp(72px,8vw,124px)] leading-[0.92] font-serif font-light tracking-[-0.03em] text-foreground">
+                <span className="hero-line block overflow-hidden">
+                  <span className="block">Above the mist,</span>
+                </span>
+                <span className="hero-line block overflow-hidden">
+                  <span className="block text-primary">an intimate forest sanctuary.</span>
+                </span>
+              </h1>
+            </div>
+
+            <p className="hero-copy max-w-2xl text-base leading-8 text-foreground/75 sm:text-lg">
+              Aurelia Highlands is a cinematic retreat sculpted in the Western Ghats — warm stone, forest light, the hush of pine and the luxury of time stopped for each guest.
+            </p>
+
+            <div className="hero-buttons flex flex-wrap items-center gap-4 text-sm uppercase tracking-[0.3em]">
+              <a href="#accommodation" className="inline-flex items-center justify-center rounded-full border border-primary/40 bg-primary/10 px-8 py-4 text-primary transition duration-300 hover:bg-primary hover:text-black">
+                Discover suites
+              </a>
+              <a href="#dining" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-black/30 px-8 py-4 text-foreground/90 transition duration-300 hover:border-primary/50 hover:text-primary">
+                Culinary journeys
+              </a>
+            </div>
           </div>
 
-        
-
-          <div className="hero-stats mt-8 flex flex-wrap items-center gap-4 text-sm uppercase tracking-[0.36em] text-foreground/65 opacity-0">
+          <div className="hero-stats mt-4 flex flex-wrap items-center gap-4 text-sm uppercase tracking-[0.36em] text-foreground/65">
             <span className="inline-flex items-center gap-3 text-[0.8rem] tracking-[0.45em] text-foreground/60">★★★★★</span>
             <span className="h-5 w-px bg-white/10" />
-            <span>52 Luxury Suites</span>
+            <span>52 luxury suites</span>
             <span className="h-5 w-px bg-white/10" />
-            <span>12 Tree Houses</span>
+            <span>12 tree houses</span>
             <span className="h-5 w-px bg-white/10" />
-            <span>5200 ft Elevation</span>
+            <span>5,200 ft elevation</span>
           </div>
         </div>
 
         <div className="relative flex items-end justify-center lg:pb-0">
-          <div className="booking-card opacity-0 w-full max-w-[480px] rounded-[36px] border border-[rgba(255,255,255,0.08)] bg-[rgba(18,18,18,0.35)] p-10 shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur-[32px]">
+          <div className="booking-card opacity-0 w-full max-w-[500px] rounded-[36px] border border-[rgba(255,255,255,0.08)] bg-[rgba(18,18,18,0.38)] p-10 shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur-[32px]">
             <div className="absolute -left-10 top-8 h-24 w-24 rounded-full bg-[rgba(198,165,106,0.16)] blur-3xl" />
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.45em] text-foreground/50">Bespoke Arrival</p>
-              <h2 className="text-3xl font-serif tracking-[-0.03em] text-foreground">Craft your private stay</h2>
+              <p className="text-[0.72rem] uppercase tracking-[0.45em] text-secondary">Bespoke arrival</p>
+              <h2 className="text-3xl font-serif tracking-[-0.03em] text-foreground">Your private stay begins here</h2>
               <p className="max-w-sm text-sm leading-7 text-foreground/70">
-                Choose arrival rhythm, room mood, and culinary rituals with effortless luxury and calm precision.
+                Select your arrival rhythm, room mood and culinary rituals with the effortless calm of a curated luxury escape.
               </p>
             </div>
 
@@ -436,11 +430,18 @@ export function Hero() {
               </label>
             </div>
 
-            <button className="mt-8 flex w-full items-center justify-center gap-3 rounded-full bg-[#C6A56A] px-6 py-4 text-sm uppercase tracking-[0.32em] text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_48px_rgba(198,165,106,0.24)]">
-              Reserve Your Stay
+            <button className="mt-8 flex w-full items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 text-sm uppercase tracking-[0.32em] text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_48px_rgba(198,165,106,0.24)]">
+              Reserve your stay
               <span className="text-base">→</span>
             </button>
           </div>
+        </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-8 z-20 flex justify-center px-6">
+        <div className="hero-scroll flex h-16 w-full max-w-[36rem] items-center justify-center gap-3 rounded-full border border-white/10 bg-black/45 px-5 text-sm uppercase tracking-[0.38em] text-foreground/70 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+          <span className="inline-flex h-3 w-3 animate-[pulse-glow_1.8s_ease-in-out_infinite] rounded-full bg-primary" />
+          Scroll through the forest story
         </div>
       </div>
 
@@ -449,21 +450,11 @@ export function Hero() {
           <p className="text-xs uppercase tracking-[0.4em] text-foreground/60">Preparing your arrival...</p>
           <div ref={progressRef} className="mt-5 text-4xl font-semibold">0%</div>
           <div className="mt-5 h-[2px] w-full overflow-hidden rounded-full bg-white/10">
-            <div ref={progressBarRef} className="h-full w-0 rounded-full bg-[linear-gradient(90deg,_rgba(255,255,255,0.95),_rgba(198,165,106,0.95))] transition-all duration-300" />
+            <div ref={progressBarRef} className="h-full w-0 rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.95),rgba(198,165,106,0.95))] transition-all duration-300" />
           </div>
           <p className="mt-4 text-sm text-foreground/50">Immersive frames are loading with the gentlest possible footprint.</p>
         </div>
       </div>
-
-      {isModalOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-6 py-8">
-          <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-md"
-            onClick={() => setIsModalOpen(false)}
-          />
-        
-        </div>
-      ) : null}
     </section>
   )
 }
